@@ -36,6 +36,6 @@ This project includes a script `build.sh` that you can use to build a Docker ima
 ./build.sh
 
 # build an image with custom values
-./build.sh -p PyDockSwift -r <REGISTRY> -v <VERSION>
+./build.sh -r <REGISTRY> -v <VERSION>
 ```
 

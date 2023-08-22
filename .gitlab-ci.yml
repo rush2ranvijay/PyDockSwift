@@ -1,0 +1,34 @@
+image: python:3.8-slim-buster
+
+stages:
+  - build
+  - test
+  - image
+
+build:
+  stage: build
+  before_script:
+    - echo "Building application.."
+  script:
+    - python setup.py clean package
+
+test:
+  stage: test
+  before_script:
+    - echo "Running test cases.."
+    - pip install pytest
+  script:
+    - pytest
+
+build-image:
+  stage: image
+  before_script:
+    - echo "Building a docker image.."
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:${CI_PIPELINE_IID}
+

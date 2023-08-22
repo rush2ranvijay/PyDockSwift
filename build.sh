@@ -3,10 +3,10 @@
 set -e
 
 # SET the REGISTRY here, where the docker container should be pushed
-REGISTRY=""
+REGISTRY="rush2ranvijay/docker-python-lab"
 
 # SET the appname here
-PROJECT_NAME="PyDockSwift"
+PROJECT_NAME="py-dock-swift"
 
 while getopts a:r:v:h flag
 do
@@ -16,7 +16,7 @@ do
         v) VERSION=${OPTARG};;
         h) echo "Usage: ${0} [-h|[-p <project_name>][-r <registry_name>][-v <version>]]"
            echo "  h: help (this message)"
-           echo "  p: PROJECT_NAME for your work. Defaults to 'PyDockSwift'."
+           echo "  p: PROJECT_NAME for your work. Defaults to 'py-dock-swift'."
            echo "  r: REGISTRY name where the docker container should be pushed. Defaults to none - localhost"
            echo "  v: VERSION of the build. Defaults to using the current git head SHA"
            exit 1;;

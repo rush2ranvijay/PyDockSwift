@@ -36,7 +36,7 @@ class Clean(Command):
 
 
 class CopyAppFiles(Command):
-    description = "Copy application configuration and job_script files for deployment"
+    description = "Copy application resources into the distribution artifact.whl file"
     user_options = []
     app_file_dirs = ["resources"]
 
@@ -65,7 +65,7 @@ class CopyAppFiles(Command):
 
 
 class PackageBuild(Command):
-    description = "Python Build Package for distribution"
+    description = "Build an application package for distribution."
     requirements_txt = "requirements.txt"
     user_options = []
 
@@ -99,7 +99,8 @@ def read_install_requirements():
 setup(
     name="PyDockSwift",
     author="Ranvijay Singh",
-    description="This is a python with docker quick starter base project which can be extended",
+    description="This is a versatile Python-Docker project, offering quick-start base templates that can be "
+                "effortlessly extended to suit various needs.",
     version="0.1.0",
     packages=find_packages(include=("assets*",)),
     python_requires=">=3.11",

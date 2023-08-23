@@ -3,7 +3,7 @@ PyDockSwift empowers you to kickstart Python projects effortlessly. Seamlessly D
 
 ## Prerequisites Software
 * Java 8
-* Python => 3.x.x 
+* Python => 3.11.x 
 
 ## Local Setup & Run
 1. Create Python Virtual environment. Make sure you are using virtualenv belonging to python 3.x.x

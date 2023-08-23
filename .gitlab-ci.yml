@@ -8,7 +8,7 @@ stages:
 build:
   stage: build
   before_script:
-    - echo "Building application.."
+    - echo "Creating a distribution artefact of the application.."
   script:
     - python setup.py clean package
 
